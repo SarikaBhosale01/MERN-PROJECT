@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar"; // Import Navbar
+import Footer from "./components/Footer"; // Import Footer
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import ProjectDetails from "./pages/ProjectDetails";
+import CreateProject from "./pages/CreateProject";
+// import CreateTask from "./pages/CreateTask";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar /> {/* Add Navbar */}
+      <div style={styles.content}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/create-project" element={<CreateProject />} />
+          {/* <Route path="/create-task/:projectId" element={<CreateTask />} /> */}
+        </Routes>
+      </div>
+      <Footer /> {/* Add Footer */}
+    </Router>
   );
 }
+
+// Basic styles for content area
+const styles = {
+  content: {
+    minHeight: "calc(100vh - 120px)", // Adjust height to fit Navbar and Footer
+    padding: "20px",
+  },
+};
 
 export default App;
