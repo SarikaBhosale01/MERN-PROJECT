@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
  // Import Sidebar
+
 const ProjectDetails = () => {
   const { id } = useParams(); // Get project ID from the URL
   const [project, setProject] = useState(null);
@@ -25,7 +26,10 @@ const ProjectDetails = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+ 
 
+
+  
   return (
     <div style={styles.container}>
       {/* <Sidebar /> Sidebar on the left */}

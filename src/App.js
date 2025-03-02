@@ -6,6 +6,8 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import ProjectDetails from "./pages/ProjectDetails";
 import CreateProject from "./pages/CreateProject";
+import ViewProjects from "./pages/ViewProjects";
+import ProjectInfoPage from './pages/ProjectInfoPage'; // Verify correct path
 // import CreateTask from "./pages/CreateTask";
 
 function App() {
@@ -17,9 +19,21 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/Project-info" element={<ProjectInfoPage />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/create-project" element={<CreateProject />} />
+          <Route path="/projects" element={<ViewProjects/>}></Route>
+          <Route 
+          path="/projects" 
+          element={
+            
+              <ViewProjects />
+            
+          } 
+        />
+
           {/* <Route path="/create-task/:projectId" element={<CreateTask />} /> */}
+          
         </Routes>
       </div>
       <Footer /> {/* Add Footer */}

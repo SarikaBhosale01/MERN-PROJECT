@@ -13,8 +13,8 @@ const Navbar = () => {
   return (
     <nav style={styles.navbar}>
       <div style={styles.logo}>
-        <Link to="/dashboard" style={styles.link}>
-        <img src="/logo.jpg" alt=""  />Project Manager
+        <Link to="/" style={styles.link}>
+        <img src="/src/img/project.png" alt=""  />Project Manager
         </Link>
       </div>
       <div style={styles.links}>
@@ -24,9 +24,11 @@ const Navbar = () => {
         <Link to="/create-project" style={styles.link}>
           Create Project
         </Link>
+        <Link to="/projects" style={styles.link}> View-All-projects</Link>
         <button onClick={handleLogout} style={styles.button}>
           Logout
         </button>
+        
       </div>
     </nav>
   );
