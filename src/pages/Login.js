@@ -9,17 +9,69 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post('http://localhost:5000/api/auth/login', {
+  //       email,
+  //       password
+  //     });
+
+  //     if (response.data.token) {
+  //       localStorage.setItem('token', response.data.token);
+  //       navigate('/projects');
+  //     }
+  //   } catch (err) {
+  //     setError(err.response?.data?.error || 'Login failed');
+  //   }
+  // };
+  
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setError("");
+  //   const trimmedEmail = email.trim(); //  Add this
+  //   const trimmedPassword = password.trim();
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:5000/api/auth/login",
+  //       {  email: trimmedEmail, password: trimmedPassword }
+  //     );
+  
+  //     if (response.data.token) {
+  //       localStorage.setItem('token', response.data.token);
+  //       navigate('/projects');
+  //     }
+  //   } catch (err) {
+  //     // Handle specific error cases
+  //     if (err.response?.status === 401) {
+  //       setError('Invalid email or password');
+  //     } else {
+  //       setError('Login failed. Please try again.');
+  //     }
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setError("");
     try {
-      const response = await axios.post("/api/auth/login", { email, password });
-      localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        { 
+          email: email.trim().toLowerCase(), password: password.trim() 
+        }
+      );
+  
+      if (response.data.success) {
+        localStorage.setItem('token', response.data.token); // Store token
+        navigate('/create-project'); // Redirect to project page
+      }
     } catch (err) {
-      setError("Login failed. Please check your credentials.");
+      setError(err.response?.data?.error || 'Login failed. Please try again.');
     }
   };
+
+
 
   return (
     <div style={styles.container}>

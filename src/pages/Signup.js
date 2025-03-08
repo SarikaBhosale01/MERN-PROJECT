@@ -2,39 +2,51 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Reset previous errors
+    setIsLoading(true);
 
-    // Basic validation
+    // Enhanced validation
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      setIsLoading(false);
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      setIsLoading(false);
       return;
     }
 
     try {
-      // Make API call to register user
-      const response = await axios.post("/api/auth/signup", {
-        username,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/signup", // Full backend URL
+        { username, email, password }
+      );
 
-      // If registration is successful, redirect to login page
       if (response.data.success) {
         navigate("/login");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed. Please try again.");
+      setError(err.response?.data?.error || "Signup failed. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  // ... keep the rest of your JSX code unchanged ...
 
   return (
     <div style={styles.container}>
@@ -97,12 +109,14 @@ const Signup = () => {
             required
           />
         </div>
+        
         <button type="submit" style={styles.button}>
           Signup
         </button>
+        
       </form>
       <p style={styles.loginText}>
-        Already have an account? <a href="/login" style={styles.loginLink}>Login here</a>
+        Already have an account? <a href="/" style={styles.loginLink}>Login here</a>
       </p>
     </div>
   );
