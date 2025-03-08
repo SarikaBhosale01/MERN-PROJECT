@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge, ProgressBar, Modal } from 'react-bootstrap';
@@ -5,6 +6,13 @@ import { FaEdit, FaTrash, FaCalendarAlt, FaUsers, FaTasks } from 'react-icons/fa
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import './pro.css';
+=======
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+ // Import Sidebar
+
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
 const ProjectDetails = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
@@ -47,10 +55,18 @@ const ProjectDetails = () => {
     setShowDeleteModal(false);
   };
 
+<<<<<<< HEAD
   if (loading) return <div className="text-center mt-5">Loading...</div>;
   if (error) return <div className="text-center mt-5 text-danger">{error}</div>;
   if (!project) return <div className="text-center mt-5">Project not found</div>;
+=======
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+ 
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
 
+
+  
   return (
     <Container className="py-5">
       <Row className="mb-4">

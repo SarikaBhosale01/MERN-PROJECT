@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import axios from 'axios';
 import { RotateCw } from 'react-feather';
+=======
+// src/components/UploadProject.js
+import React, { useState } from 'react';
+import axios from 'axios';
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
 
 const UploadProject = () => {
   const [project, setProject] = useState({
@@ -8,6 +14,7 @@ const UploadProject = () => {
     description: '',
     files: null
   });
+<<<<<<< HEAD
   const [isUploading, setIsUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState({
     success: null,
@@ -24,6 +31,11 @@ const UploadProject = () => {
     setIsUploading(true);
     setUploadStatus({ success: null, message: '' });
 
+=======
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
     const formData = new FormData();
     formData.append('name', project.name);
     formData.append('description', project.description);
@@ -32,6 +44,7 @@ const UploadProject = () => {
     });
 
     try {
+<<<<<<< HEAD
       const {data} = await axios.post('/api/projects/upload', formData, {
         headers: {
           'Content-Type': 'form-data'
@@ -55,11 +68,19 @@ const UploadProject = () => {
       });
     } finally {
       setIsUploading(false);
+=======
+      await axios.post('/api/projects/upload', formData);
+      alert('Project uploaded successfully!');
+      setProject({ name: '', description: '', files: null });
+    } catch (error) {
+      console.error('Upload failed:', error);
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
     }
   };
 
   return (
     <div className="upload-container">
+<<<<<<< HEAD
       <form onSubmit={handleSubmit} className="upload-form">
         <h2 className="form-title">🚀 Upload Project</h2>
 
@@ -68,11 +89,20 @@ const UploadProject = () => {
           <input
             type="text"
             className="form-input"
+=======
+      <h2>Upload New Project</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Project Name</label>
+          <input
+            type="text"
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
             value={project.name}
             onChange={(e) => setProject({...project, name: e.target.value})}
             required
           />
         </div>
+<<<<<<< HEAD
 
         <div className="form-group">
           <label className="form-label">Description</label>
@@ -107,11 +137,36 @@ const UploadProject = () => {
                     </span>
                   </div>
                 </div>
+=======
+        
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            value={project.description}
+            onChange={(e) => setProject({...project, description: e.target.value})}
+          />
+        </div>
+
+        <div className="form-group file-upload">
+          <label>Upload Files</label>
+          <input
+            type="file"
+            multiple
+            onChange={(e) => setProject({...project, files: e.target.files})}
+          />
+          <div className="file-preview">
+            {project.files && 
+              Array.from(project.files).map((file, index) => (
+                <span key={index} className="file-item">
+                  📄 {file.name}
+                </span>
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
               ))
             }
           </div>
         </div>
 
+<<<<<<< HEAD
         {uploadStatus.message && (
           <div className={`status-message ${uploadStatus.success ? 'success' : 'error'}`}>
             {uploadStatus.message}
@@ -304,6 +359,12 @@ const UploadProject = () => {
           to { transform: rotate(360deg); }
         }
       `}</style>
+=======
+        <button type="submit" className="upload-btn">
+          🚀 Upload Project
+        </button>
+      </form>
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
     </div>
   );
 };

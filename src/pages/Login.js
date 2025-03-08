@@ -9,6 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -73,6 +74,36 @@ const Login = () => {
 
 
 
+=======
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await axios.post("/api/auth/login", { email, password });
+  //     localStorage.setItem("token", response.data.token);
+  //     navigate("/dashboard");
+  //   } catch (err) {
+  //     setError("Login failed. Please check your credentials.");
+  //   }
+  // };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
+        email,
+        password
+      });
+
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        navigate('/projects');
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || 'Login failed');
+    }
+  };
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
   return (
     <div style={styles.container}>
       <div style={styles.loginBox}>

@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import ProjectDetails from "./pages/ProjectDetails";
 import CreateProject from "./pages/CreateProject";
 import ViewProjects from "./pages/ViewProjects";
+<<<<<<< HEAD
 import ProjectInfoPage from './pages/ProjectInfoPage';
 import Contact from "./pages/Contact"; 
 import About from "./pages/About"; 
@@ -17,6 +18,9 @@ import About from "./pages/About";
 import Solutions from './pages/Solutions';
 import Education from "./pages/Education"; // Adjust path as needed
 // Verify correct path
+=======
+import ProjectInfoPage from './pages/ProjectInfoPage'; // Verify correct path
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
 // import CreateTask from "./pages/CreateTask";
 
 function App() {
@@ -30,6 +34,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/Project-info" element={<ProjectInfoPage />} />
+<<<<<<< HEAD
           <Route path="/projectDetails" element={<ProjectDetails />} />
           <Route path="/home" element={<Home />} />
           <Route path="/create-project" element={<CreateProject />} />
@@ -42,6 +47,22 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           {/* <Route path="/create-task/:projectId" element={<CreateTask />} /> */}
           <Route path="/UploadProject" element={<UploadProject/>}></Route>
+=======
+          <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/create-project" element={<CreateProject />} />
+          <Route path="/projects" element={<ViewProjects/>}></Route>
+          <Route 
+          path="/projects" 
+          element={
+            
+              <ViewProjects />
+            
+          } 
+        />
+
+          {/* <Route path="/create-task/:projectId" element={<CreateTask />} /> */}
+          
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
         </Routes>
         
       </div>

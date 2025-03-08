@@ -2,6 +2,10 @@
 // src/pages/ProjectInfoPage.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
 const ProjectInfoPage = () => {
   const [isHovered, setIsHovered] = useState(false);
 

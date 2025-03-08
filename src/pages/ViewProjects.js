@@ -51,7 +51,11 @@ const ViewProjects = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
           />
+<<<<<<< HEAD
           <Link to="/create-project" className="create-btn">
+=======
+          <Link to="/create" className="create-btn">
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
             + New Project
           </Link>
         </div>
@@ -88,10 +92,16 @@ const ViewProjects = () => {
             </div>
 
             <div className="card-footer">
+<<<<<<< HEAD
               <Link to={`/Projectdetails/`} className="view-link">
                 View Details →
               </Link>
               <Link to={`/Home/${project._id}`}></Link>
+=======
+              <Link to={`/projects/${project._id}`} className="view-link">
+                View Details →
+              </Link>
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
             </div>
           </div>
         ))}

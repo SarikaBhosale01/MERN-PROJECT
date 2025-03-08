@@ -363,6 +363,7 @@ const CreateProject = () => {
       <button type="button" className='bg-warning'>
       <Link to="/projects" className="view-projects-link">
   View All Projects
+<<<<<<< HEAD
 </Link></button><br></br>
 <div className="mb-5">
           <Link to="/UploadProject" className="btn btn-info">
@@ -370,6 +371,10 @@ const CreateProject = () => {
           </Link>
         </div>
 
+=======
+</Link></button>
+      
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
       <style jsx>{`
         .app-container {
           min-height: 100vh;

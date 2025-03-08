@@ -47,6 +47,7 @@ const Navbar = () => {
 
   return (
     <nav style={styles.navbar}>
+<<<<<<< HEAD
       <div style={styles.logoContainer}>
         <NavLink to="/" style={styles.logoLink}>
           <img 
@@ -121,6 +122,25 @@ const Navbar = () => {
           </NavLink>
           
         </div>
+=======
+      <div style={styles.logo}>
+        <Link to="/" style={styles.link}>
+        <img src="/src/img/project.png" alt=""  />Project Manager
+        </Link>
+      </div>
+      <div style={styles.links}>
+        <Link to="/dashboard" style={styles.link}>
+          Dashboard
+        </Link>
+        <Link to="/create-project" style={styles.link}>
+          Create Project
+        </Link>
+        <Link to="/projects" style={styles.link}> View-All-projects</Link>
+        <button onClick={handleLogout} style={styles.button}>
+          Logout
+        </button>
+        
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
       </div>
     </nav>
   );

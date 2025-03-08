@@ -15,6 +15,7 @@ const Dashboard = () => {
     fetchProjects();
   }, []);
 
+<<<<<<< HEAD
   return (
     <div className="container-fluid p-0">
       {/* Image Carousel */}
@@ -95,3 +96,45 @@ const Dashboard = () => {
 // New Project Info Component
 
 export default Dashboard;
+=======
+  <div style={styles.container}>Hello, World!</div>;
+  
+  return (
+    <div className='container'>
+    
+    
+    <div>
+   
+      <h1>Dashboard</h1>
+      <Link to="/create-project" className="btn btn-success">Create New Project</Link>
+      <br></br><br>
+      </br>
+      <Link to="/project-info" className="btn btn-success">
+       View Project Details
+      </Link>
+      <ul>
+        {projects.map((project) => (
+          <li key={project._id}>
+            <Link to={`/project/${project._id}`}>{project.title}</Link>
+          </li>
+        ))}
+        
+      </ul>
+      
+    </div>
+    </div>
+  );
+};
+const styles = {
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundImage: "url('https://cdn.pixabay.com/photo/2017/03/16/05/45/manager-2148233_1280.jpg')", // Replace with your image URL
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  },
+}
+export default Dashboard;
+>>>>>>> 43ec611711763e60138e517af3279a06d36df7f0
